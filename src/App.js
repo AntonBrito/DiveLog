@@ -12,11 +12,19 @@ class App extends Component {
         <div className="container">
           <Dive
             name="Anton Brito"
-            // divenumber="021345"
-            // location="Jamestown"
-            // date="jun-22-2018"
-            // divebuddy="RIley"
-            // notes="We saw a shark and allot of start fish"
+            divenumber="021345"
+            location="Jamestown"
+            date="jun-22-2018"
+            divebuddy="RIley"
+            notes="We saw a shark and allot of start fish"
+          />
+          <Dive
+            name="Riley Brito"
+            divenumber="021345"
+            location="Jamestown"
+            date="jun-22-2018"
+            divebuddy="RIley"
+            notes="We saw a shark and allot of start fish"
           />
         </div>
       </div>
