@@ -19,6 +19,9 @@ class Dive extends Component {
             style={{ cursor: "pointer" }}
           />
         </h4>
+        {/* {showLogInfo ?} (
+
+        ) */}
       </div>
     );
   }
