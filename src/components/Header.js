@@ -4,7 +4,7 @@ const Header = props => {
   const { branding } = props;
   return (
     <div>
-      <h1>DiveLog</h1>
+      <h1>{props.branding}</h1>
     </div>
   );
 };
