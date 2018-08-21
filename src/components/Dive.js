@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 
 class Dive extends Component {
   state = {
-    showLogInfo: false
+    showDiveInfo: true
   };
   render() {
     const { name, divenumber, location, date, divebuddy, notes } = this.props;
-    const { showLogInfo } = this.state;
+    const { showDiveInfo } = this.state;
     return (
       <div className="card card-body mb-3">
         <h4>
@@ -15,14 +15,14 @@ class Dive extends Component {
           <i
             onClick={() =>
               this.setState({
-                showLogInfo: !this.state.showLogInfo
+                showDiveInfo: !this.state.showDiveInfo
               })
             }
             className="fas fa-sort-down"
             style={{ cursor: "pointer" }}
           />
         </h4>
-        {showLogInfo ? (
+        {showDiveInfo ? (
           <ul className="list-group">
             <li className="list-group-item">Divenumber: {divenumber}</li>
             <li className="list-group-item">Location: {location}</li>
