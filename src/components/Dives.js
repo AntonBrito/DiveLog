@@ -34,11 +34,11 @@ class Dives extends Component {
   render() {
     const { dives } = this.state;
     return (
-      <div>
+      <React.Fragment>
         {dives.map(dive => (
           <Dive key={dive.id} dive={dive} />
         ))}
-      </div>
+      </React.Fragment>
     );
   }
 }
