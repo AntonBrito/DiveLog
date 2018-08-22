@@ -6,6 +6,10 @@ class Dive extends Component {
     showDiveInfo: false
   };
 
+  onDeleteClick = () => {
+    this.props.deleteClickHandler();
+  };
+
   render() {
     const { name, location, date, divebuddy, notes } = this.props.dive;
     const { showDiveInfo } = this.state;
@@ -21,6 +25,11 @@ class Dive extends Component {
             }
             className="fas fa-sort-down"
             style={{ cursor: "pointer" }}
+          />
+          <i
+            className="fas fa-times"
+            style={{ cursor: "pointer", float: "right", color: "red" }}
+            onClick={this.onDeleteClick}
           />
         </h4>
 
@@ -38,7 +47,8 @@ class Dive extends Component {
 }
 
 Dive.propTypes = {
-  dive: PropTypes.object.isRequired
+  dive: PropTypes.object.isRequired,
+  deleteClickHandler: PropTypes.func.isRequired
 };
 
 export default Dive;
