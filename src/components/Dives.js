@@ -31,12 +31,26 @@ class Dives extends Component {
     ]
   };
 
+  deleteDive = id => {
+    const { dives } = this.state;
+
+    const newDives = dives.filter(dive => dive.id !== id);
+
+    this.setState({
+      dives: newDives
+    });
+  };
+
   render() {
     const { dives } = this.state;
     return (
       <React.Fragment>
         {dives.map(dive => (
-          <Dive key={dive.id} dive={dive} />
+          <Dive
+            key={dive.id}
+            dive={dive}
+            deleteClickHandler={this.deleteDive.bind(this, dive.id)}
+          />
         ))}
       </React.Fragment>
     );
