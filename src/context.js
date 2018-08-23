@@ -7,7 +7,7 @@ const reducer = (state, action) => {
     case "DELETE_DIVE":
       return {
         ...state,
-        dives: state.dives.filte(dive => dive.id !== action.payload)
+        dives: state.dives.filter(dive => dive.id !== action.payload)
       };
     default:
       return state;
