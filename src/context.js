@@ -2,6 +2,18 @@ import React, { Component } from "react";
 
 const Context = React.createContext();
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "DELETE_DIVE":
+      return {
+        ...state,
+        dives: state.dives.filte(dive => dive.id !== action.payload)
+      };
+    default:
+      return state;
+  }
+};
+
 export class Provider extends Component {
   state = {
     dives: [
@@ -29,7 +41,8 @@ export class Provider extends Component {
         divebuddy: "Riley",
         notes: "I cant wait to go back"
       }
-    ]
+    ],
+    dispatch: action => this.setState(state => reducer(state, action))
   };
 
   render() {
