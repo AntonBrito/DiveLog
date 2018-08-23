@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Dive from "./Dive";
-import { Consumer } from "../context";
+import { Consumer } from "../../context";
 
 class Dives extends Component {
   render() {
@@ -10,7 +10,7 @@ class Dives extends Component {
           const { dives } = value;
           return (
             <React.Fragment>
-              {value.dives.map(dive => (
+              {dives.map(dive => (
                 <Dive key={dive.id} dive={dive} />
               ))}
             </React.Fragment>

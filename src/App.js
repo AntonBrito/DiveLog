@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import Dives from "./components/Dives";
-import Header from "./components/Header";
+import Dives from "./components/logs/Dives";
+import Header from "./components/layout/Header";
 
 import { Provider } from "./context";
 
