@@ -9,6 +9,11 @@ const reducer = (state, action) => {
         ...state,
         dives: state.dives.filter(dive => dive.id !== action.payload)
       };
+    case "ADD_DIVE":
+      return {
+        ...state,
+        dives: [action.payload, ...state.dives]
+      };
     default:
       return state;
   }
