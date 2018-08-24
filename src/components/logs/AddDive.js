@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Consumer } from "../../context";
+import TextInputGroup from "../layout/TextInputGroup";
 import uuid from "uuid";
 
 class AddDive extends Component {
@@ -54,61 +55,41 @@ class AddDive extends Component {
               <div className="card-header">Log your Dive</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispatch)}>
-                  <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control form-control-lg"
-                      placeholder="Diver's Name..."
-                      value={name}
-                      onChange={this.onChange}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="location">Location</label>
-                    <input
-                      type="text"
-                      name="location"
-                      className="form-control form-control-lg"
-                      placeholder="Beach name..."
-                      value={location}
-                      onChange={this.onChange}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="date">Date</label>
-                    <input
-                      type="text"
-                      name="date"
-                      className="form-control form-control-lg"
-                      placeholder="When?..."
-                      value={date}
-                      onChange={this.onChange}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="name">DiveBuddy</label>
-                    <input
-                      type="text"
-                      name="divebuddy"
-                      className="form-control form-control-lg"
-                      placeholder="Add Buddy..."
-                      value={divebuddy}
-                      onChange={this.onChange}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="notes">Notes</label>
-                    <input
-                      type="text"
-                      name="notes"
-                      className="form-control form-control-lg"
-                      placeholder="Add notes..."
-                      value={notes}
-                      onChange={this.onChange}
-                    />
-                  </div>
+                  <TextInputGroup
+                    label="Name"
+                    name="name"
+                    placeholder="Enter Name"
+                    value={name}
+                    onChange={this.onChange}
+                  />
+                  <TextInputGroup
+                    label="Location"
+                    name="name"
+                    placeholder="Enter Name"
+                    value={name}
+                    onChange={this.onChange}
+                  />
+                  <TextInputGroup
+                    label="Date"
+                    name="date"
+                    placeholder="When?"
+                    value={date}
+                    onChange={this.onChange}
+                  />
+                  <TextInputGroup
+                    label="Dive Buddy"
+                    name="name"
+                    placeholder="Add Dive Buddy"
+                    value={name}
+                    onChange={this.onChange}
+                  />
+                  <TextInputGroup
+                    label="Notes"
+                    name="notes"
+                    placeholder="Add notes"
+                    value={notes}
+                    onChange={this.onChange}
+                  />
                   <input
                     type="submit"
                     value="Add DIVE"
