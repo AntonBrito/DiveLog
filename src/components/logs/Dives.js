@@ -10,6 +10,10 @@ class Dives extends Component {
           const { dives } = value;
           return (
             <React.Fragment>
+              <h1 className="display-4 mb-2">
+                <span className="text-info">Dive</span>
+                Log
+              </h1>
               {dives.map(dive => (
                 <Dive key={dive.id} dive={dive} />
               ))}
