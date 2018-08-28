@@ -9,12 +9,40 @@ class AddDive extends Component {
     location: "",
     date: "",
     divebuddy: "",
-    notes: ""
+    notes: "",
+    errors: {}
   };
 
   onSubmit = (dispatch, e) => {
     e.preventDefault();
+
     const { name, location, date, divebuddy, notes } = this.state;
+
+    // Check for errors
+    if (name === "") {
+      this.setState({ erros: { name: "Email is required" } });
+      return;
+    }
+
+    if (location === "") {
+      this.setState({ erros: { location: "location is required" } });
+      return;
+    }
+
+    if (date === "") {
+      this.setState({ erros: { date: "date is required" } });
+      return;
+    }
+
+    if (divebuddy === "") {
+      this.setState({ erros: { divebuddy: "Email is required" } });
+      return;
+    }
+
+    if (notes === "") {
+      this.setState({ erros: { notes: "notes is required" } });
+      return;
+    }
 
     // uuid it allow us to generate an fake id
     const newDive = {
@@ -28,13 +56,13 @@ class AddDive extends Component {
 
     dispatch({ type: "ADD_DIVE", payload: newDive });
 
-    // Clear state
     this.setState({
       name: "",
       location: "",
       date: "",
       divebuddy: "",
-      notes: ""
+      notes: "",
+      erros: {}
     });
   };
 
@@ -44,7 +72,7 @@ class AddDive extends Component {
     });
 
   render() {
-    const { name, location, date, divebuddy, notes } = this.state;
+    const { name, location, date, divebuddy, errors, notes } = this.state;
 
     return (
       <Consumer>
@@ -61,13 +89,15 @@ class AddDive extends Component {
                     placeholder="Enter Name"
                     value={name}
                     onChange={this.onChange}
+                    error={errors.name}
                   />
                   <TextInputGroup
                     label="Location"
-                    name="name"
+                    name="location"
                     placeholder="Enter Name"
-                    value={name}
+                    value={location}
                     onChange={this.onChange}
+                    error={errors.location}
                   />
                   <TextInputGroup
                     label="Date"
@@ -75,13 +105,15 @@ class AddDive extends Component {
                     placeholder="When?"
                     value={date}
                     onChange={this.onChange}
+                    error={errors.date}
                   />
                   <TextInputGroup
                     label="Dive Buddy"
-                    name="name"
+                    name="divebuddy"
                     placeholder="Add Dive Buddy"
-                    value={name}
+                    value={divebuddy}
                     onChange={this.onChange}
+                    error={errors.divebuddy}
                   />
                   <TextInputGroup
                     label="Notes"
@@ -89,6 +121,7 @@ class AddDive extends Component {
                     placeholder="Add notes"
                     value={notes}
                     onChange={this.onChange}
+                    error={errors.notes}
                   />
                   <input
                     type="submit"
