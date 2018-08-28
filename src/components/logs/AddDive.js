@@ -64,6 +64,8 @@ class AddDive extends Component {
       notes: "",
       erros: {}
     });
+
+    this.props.history.push("/");
   };
 
   onChange = e =>
