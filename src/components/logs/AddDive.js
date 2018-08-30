@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "../../context";
 import TextInputGroup from "../layout/TextInputGroup";
-import uuid from "uuid";
+import axios from "axios";
 
 class AddDive extends Component {
   state = {
@@ -46,7 +46,6 @@ class AddDive extends Component {
 
     // uuid it allow us to generate an fake id
     const newDive = {
-      id: uuid(),
       name,
       location,
       date,
@@ -54,7 +53,9 @@ class AddDive extends Component {
       notes
     };
 
-    dispatch({ type: "ADD_DIVE", payload: newDive });
+    axios
+      .post(`https://jsonplaceholder.typicode.com/users`, newDive)
+      .then(res => dispatch({ type: "ADD_DIVE", payload: res.data }));
 
     this.setState({
       name: "",

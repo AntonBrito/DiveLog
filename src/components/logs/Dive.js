@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Consumer } from "../../context";
+import axios from "axios";
 
 class Dive extends Component {
   state = {
@@ -8,9 +9,10 @@ class Dive extends Component {
   };
 
   onDeleteClick = (id, dispatch) => {
-    dispatch({ type: "DELETE_DIVE", payload: id });
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then(res => dispatch({ type: "DELETE_DIVE", payload: id }));
   };
-
   render() {
     const { id, name, location, date, divebuddy, notes } = this.props.dive;
     const { showDiveInfo } = this.state;
