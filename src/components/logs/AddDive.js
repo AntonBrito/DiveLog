@@ -13,7 +13,7 @@ class AddDive extends Component {
     errors: {}
   };
 
-  onSubmit = (dispatch, e) => {
+  onSubmit = async (dispatch, e) => {
     e.preventDefault();
 
     const { name, location, date, divebuddy, notes } = this.state;
@@ -53,9 +53,11 @@ class AddDive extends Component {
       notes
     };
 
-    axios
-      .post(`https://jsonplaceholder.typicode.com/users`, newDive)
-      .then(res => dispatch({ type: "ADD_DIVE", payload: res.data }));
+    const res = await axios.post(
+      `https://jsonplaceholder.typicode.com/users`,
+      newDive
+    );
+    dispatch({ type: "ADD_DIVE", payload: res.data });
 
     this.setState({
       name: "",
