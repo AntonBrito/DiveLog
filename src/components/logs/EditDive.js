@@ -70,7 +70,7 @@ class EditDive extends Component {
           const { dispatch } = value;
           return (
             <div className="card mb-3">
-              <div className="card-header">Log your Dive</div>
+              <div className="card-header">Edit Log</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispatch)}>
                   <TextInputGroup
@@ -115,7 +115,7 @@ class EditDive extends Component {
                   />
                   <input
                     type="submit"
-                    value="Add DIVE"
+                    value="Update DIVE"
                     className="btn btn-light btn-block"
                   />
                 </form>
