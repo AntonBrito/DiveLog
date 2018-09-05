@@ -15,6 +15,13 @@ const reducer = (state, action) => {
         ...state,
         dives: [action.payload, ...state.dives]
       };
+    case "UPDATE_DIVE":
+      return {
+        ...state.dives.map(
+          dive =>
+            dive.id === action.payload.id ? (dive = action.payload) : dive
+        )
+      };
     default:
       return state;
   }
