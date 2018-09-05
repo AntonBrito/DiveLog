@@ -13,6 +13,23 @@ class EditDive extends Component {
     errors: {}
   };
 
+  async componentDidMount() {
+    const { id } = this.props.match.params;
+    const res = await axios.get(
+      `https://jsonplaceholder.typicode.com/users/${id}`
+    );
+
+    const dive = res.data;
+
+    this.setState({
+      name: dive.name,
+      location: dive.location,
+      date: dive.date,
+      divebuddy: dive.divebuddy,
+      notes: dive.notes
+    });
+  }
+
   onSubmit = async (dispatch, e) => {
     e.preventDefault();
 
