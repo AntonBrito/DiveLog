@@ -61,6 +61,24 @@ class EditDive extends Component {
       return;
     }
 
+    const updDive = {
+      name,
+      location,
+      date,
+      divebuddy,
+      notes
+    };
+
+    const { id } = this.props.match.params;
+
+    const res = await axios.put(
+      `https://jsonplaceholder.typicode.com/users/${id}`,
+      updDive
+    );
+
+    dispatch({ type: "UPDATE_DIVE", payload: res.data });
+
+    // Clear state
     this.setState({
       name: "",
       location: "",
